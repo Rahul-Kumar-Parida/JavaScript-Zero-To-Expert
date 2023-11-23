@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Strings and template literals
+        const name ="Rahul";
+        const job ="Programmer";
+        const dob = 2002;
+        const year = 2023;
+        const new1 = "i am " + name + ", a " + (year - dob) + " Year old " + job ;
+        console.log(new1);
+
+        const rahulnew = 'i am  ${name}';
+        console.log(rahulnew);
+
+
+        console.log("just a regular string...")
+        console.log('rahul \n\
+        kumar\n\
+        parida')
+
+        //TAking Decisions if/else Statements............
+        const age= 15;
+        // const isOldEnough =  age >= 18;
+
+        // if(isOldEnough)
+        // {
+        //     console.log("Rahul can start driving license")
+        // }
+        // else {
+        //     console.log("Rahul is Not Eligible For Driving License")
+        // }
+
+
+        if(age >= 18)
+        {
+            console.log("Rahul can start driving license")
+        }
+        else {
+            const yearLeft = 18 - age;
+            console.log("Rahul is too Young, wait another ${yearLeft} years")
+        };
+
+
+        const birthYear = 2998;
+        let century;
+        if(birthYear <= 2000) {
+            century = 20
+        }
+        else {
+            century = 21
+        }
+        console.log(century)
+
+
+        //format of if else statement in js
+        /* if(condition) {
+
+        }else {
+
+        }*/
+    </script>
+</body>
+</html>
