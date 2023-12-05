@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays in Javascript</title>
+</head>
+<body>
+    <script>
+        const friend1='Satya'
+        const friend2='Satish'
+        const friend3='Himanshu'
+
+        const friends = ['Rahul', 'Satya', 'Satish', 'Himanshu']
+        console.log(friends)
+        console.log(friends[0])
+        console.log(friends[1])
+        console.log(friends[2])
+        console.log(friends[3])
+        // console.log(friends[4])  //undefined
+
+        const year= new Array(1998, 1992, 1993, 1994)
+        console.log(year)
+
+        console.log(friends.length) //4
+        console.log(friends[friends.length-1])
+        console.log(year[year.length-1])
+
+        //replace one friend
+        friends[3] ='Jagannath'
+        console.log(friends)
+
+        //different input
+        const value= [friend1,friend2,friend3, 'rahul', 2023-2002,friends,'programmer']
+        console.log(value)
+        console.log(value.length)
+        
+
+        // function 
+        const calcAge = function(birthYear) {
+            return 2023-birthYear
+        }
+        const yer = [2012, 2013, 2014,2015]
+        console.log(yer)
+        console.log(calcAge(yer))
+        const age1 = calcAge(yer[0])
+        const age2 = calcAge(yer[1])
+        const age3 = calcAge(yer[2])
+        const age4 = calcAge(yer[yer.length-1])
+        console.log(age1,age2,age3,age4)
+
+        const ages =[calcAge(yer[0]),calcAge(yer[1]),calcAge(yer[2]),calcAge(yer[yer.length-1])]
+        console.log(ages)
+
+        //Basic array operations
+        // add Element in a array 
+        const frnds = ['satya', 'satish', 'himanshu']
+        frnds.push('jonas')
+        console.log(frnds)
+
+        //add eliment in begining of the array
+        frnds.unshift("rahul")
+        console.log(frnds)
+
+        //remove last element
+        
+        frnds.pop()
+        console.log(frnds)
+
+        //remove first element
+        frnds.shift()
+        console.log(frnds)
+
+        //index of element
+        console.log(frnds.indexOf("satish"))
+        console.log(frnds.indexOf("bob"))
+
+        //include method (return true or false)
+        console.log(frnds.includes("satish"))
+        console.log(frnds.includes("bob"))
+
+        //check
+        if(frnds.includes("satish")){
+            console.log("You have a frnd called satish")
+        }else{
+            console.log("no friends")
+        }
+        
+    </script>
+</body>
+</html>

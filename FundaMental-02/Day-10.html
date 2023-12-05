@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to object</title>
+</head>
+<body>
+    <script>
+        const  jonasArray =[
+            "Rahul",
+            "Parida",
+            2037-2002,
+            'teacher',
+            ['satish','satya','himanshu']
+        ]
+
+        const rahul ={
+            firstName : 'rahul',
+            LastName : 'Parida',
+            age: 2037-2002,
+            job: 'teacher',
+            friends:['satish','satya','himanshu']
+        }
+        // dot vs bracket
+        console.log(jonasArray)
+        console.log(rahul)
+        console.log(rahul.LastName);
+        console.log(rahul['LastName']);
+
+        const nameKey= 'Name';
+        console.log(rahul["first" + nameKey]);
+        console.log(rahul["Last" + nameKey]);
+
+        // const interstedIN = prompt("What do you want to know about jonas? Choose among firstName, LastName, age,job,friends");
+        // // console.log(interstedIN)
+        // console.log(rahul[interstedIN])
+
+        // if(rahul[interstedIN]){
+        //     console.log(rahul[interstedIN]);
+        // }else{
+        //     console.log("Wrong Request!,Choose between firstName, LastName, age,job,friends")
+        // }
+
+        // //how we use brackets and . notations
+        rahul.loaction="india";
+        rahul['instagram']='Zen.rahul24';
+        console.log(rahul);
+
+        //challenge
+        // Rahul has 3 friends and his bestfriend name is satish
+        console.log(rahul.friends[0])
+        console.log(`${rahul.firstName} has ${rahul.friends.length} friends and his bestfriend name is ${rahul.friends[0]}`);
+    </script>
+</body>
+</html>

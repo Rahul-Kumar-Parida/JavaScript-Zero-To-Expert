@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object method</title>
+</head>
+
+<body>
+    <script>
+        const rahul = {
+            firstName: 'rahul',
+            LastName: 'Parida',
+            birthYear: 2002,
+            job: 'teacher',
+            friends: ['satish', 'satya', 'himanshu'],
+            HasTheDriverLicense: true,
+
+            // calcAge :function(birthYear){
+            //     return 2037 - birthYear; //1
+            // }
+
+            // calcAge :function(){
+            //     console.log(this)//2
+            //     return 2037 - this.birthYear;
+            // },
+
+            //create a property
+
+            calcAge: function () {
+                this.age = 2037 - this.birthYear;  //3
+                return this.age;
+            },
+
+            //challenge
+            // getSummary: function(){
+            //     return `${this.firstName} is a ${this.calcAge()} years old ${this.job} and has ${this.HasTheDriverLicense?'a':'no'} dirvers license`
+            // }
+        }
+        // console.log(rahul.calcAge());  //3
+        // console.log(rahul.calcAge()); //2
+        // console.log(rahul.calcAge(2002)); //1
+        // console.log(rahul['calcAge'](1991));
+
+        // console.log(rahul.getSummary()); //4
+
+        // //challenge
+        // //rahul is a 46 years old teacher and he has a driver license.
+        if (rahul.HasTheDriverLicense) {
+            console.log(`${rahul.firstName} is a ${rahul.calcAge()} old ${rahul.job} and he has a driver license`)
+        } else {
+            console.log(`${rahul.firstName} is a ${rahul.calcAge()} old ${rahul.job} and he has no driver license`)
+        }
+        
+    </script>
+</body>
+
+</html>

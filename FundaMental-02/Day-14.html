@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loop</title>
+</head>
+<body>
+    <script>
+    // <!-- iteration of the loop -->
+    // //for llop keeps running while condition is true?
+    // for(let rep =1; rep<=10;rep++) {
+    //     console.log(`Lifting weights repeatition ${rep}`)
+    // }
+
+    //loop using in the array......................................................
+
+    const real = [
+        'rahul', 'kumar','parida',21, 'balasore',true,['nanaa','banty','kalia']
+    ]
+
+    // const newArray = [];
+
+    // console.log(real)
+    // for(let i=0; i<5;i++) {
+    //     console.log(real[i])
+    // }
+    // for(let i=0; i<real.length;i++) {
+    //     //reading from real array
+    //     console.log(real[i], typeof real[i]);
+
+    //     //filling the array
+    //     // newArray[i] = typeof real[i];
+    //     //push method
+    //     newArray.push(real[i])
+    // }
+
+    // console.log(newArray)
+
+
+    // const years = [1991,1993,1995,1996];
+    // const ages =[];
+
+    // for(let i =0;i<years.length;i++) {
+    //     // console.log(2023-years[i]);
+
+    //     ages[i] = 2023-years[i];
+    // }
+    // console.log(ages)
+
+
+
+    // // //continue and break statement
+
+    // console.log("___ONLY STRING_____")
+    // for(let i=0; i<real.length;i++) {
+    //     //using continue 
+    //     if(typeof real[i] !== 'string') continue;
+
+    //     console.log(real[i], typeof real[i]);
+    // }
+
+    // console.log("____ONLY NUMBER_____")
+    // for(let i=0; i<real.length;i++) {
+    //     //using continue 
+    //     if(typeof real[i] === "number") break;
+
+    //     console.log(real[i], typeof real[i]);
+    // }
+
+
+    // looping backward
+
+    // for(let i=real.length-1;i >0;i--){
+    //     console.log(i,real[i])
+    // }
+
+
+    // //loop inside the loop
+
+    // for(let name=1;name<4;name++){
+    //     console.log(`___Friends Name ${name}:`)
+    //     for(let fname=1;fname<4;fname++){
+    //         console.log(`name ${name}: rahul ${fname}`); 
+    //     }
+    // }
+
+
+    // //While loop in javascript
+    // let i=1;
+    // while(i<=10 ) {
+    //     console.log(`weight lifting challenge day ${i}`);
+    //     i++;
+    // }
+
+    
+    //example-1
+
+    let dice =Math.trunc(Math.random() * 6) + 1;
+    // console.log(dice)
+
+    while(dice !== 6) {
+        console.log(`you rooled a dice ${dice}`)
+        dice =Math.trunc(Math.random() * 6) + 1;
+        if(dice === 6) console.log("loop is about to end....")
+    }
+    </script>
+
+</body>
+</html>

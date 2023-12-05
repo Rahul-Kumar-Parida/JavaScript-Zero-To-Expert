@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activating Strict Mode</title>
+</head>
+<body>
+    <script>
+        'use strict';
+        // let hasDriversLicense = false;
+        // const passTest = true;
+
+        // if(passTest) hasDriverLicense =true;
+        // if (hasDriversLicense) console.log("i can drive")
+
+        //Function in Javascript
+        function logger() {
+            console.log("I am Rahul Kumar")
+        }
+
+        //calling / running //invoking function
+        logger();
+        logger();
+        logger();
+
+        //example
+
+        function fruitProcessor(apples, oranges) {
+            console.log(apples, oranges);
+            const juice = `juice with ${apples} apples and ${oranges} oranges`;
+            return juice;
+        }
+        const applejuice = fruitProcessor(6,9);
+        console.log(applejuice)
+        console.log(fruitProcessor(6,9))
+
+        const appleOrangeJuice = fruitProcessor(5,4);
+        console.log(appleOrangeJuice)
+        
+    </script>
+</body>
+</html>
