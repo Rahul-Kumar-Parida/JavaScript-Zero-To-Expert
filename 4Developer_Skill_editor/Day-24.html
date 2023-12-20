@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Function Practice</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      function logger() {
+        console.log("I am rahul");
+      }
+      logger();
+
+
+      function fruitProcessor(apple, orange){
+        console.log(apple, orange)
+        const juice =`Juice with ${apple} apples and ${orange} oranges`;
+        return juice;
+      }
+      const fruits = fruitProcessor(7,8);
+      console.log(fruits);
+
+    //   function declaration vs expression?
+
+    //declaration
+
+    function variable(birthYear){
+        return 2024-birthYear;
+    }
+    const age= variable(2002);
+    console.log(age);
+
+
+    //expression
+
+    const calcAge = function(birthYear){
+        return 2023 - birthYear;
+    }
+    const age2 = calcAge(2002);
+    console.log(age2);
+
+    // Arrow function
+
+    const arrow = birthYear => 2023- birthYear;
+    console.log(arrow(2002))
+
+    const agge = (rahul , sangram) => 
+     {
+        return 4*rahul;
+        
+        }
+
+    console.log(agge(23,43));
+
+    //function Calling other function
+
+    function percentage(marks){
+        return marks/6;
+    }
+    console.log(percentage(441));
+    function checkPercent(Name, rollno, marks) {
+        return `${rollno} is roll no of ${Name} and he have secured ${marks} with ${percentage(marks)}%`
+    }
+    console.log(checkPercent('rahul', 23240025, 431));
+    </script>
+  </body>
+</html>

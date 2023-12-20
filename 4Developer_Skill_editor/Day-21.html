@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debuging</title>
+  </head>
+  <body>
+    <script>
+        const measureKelvin = function () {
+        const measurement = {
+            type: "temp",
+            unit: "celsius",
+            // C)FIX
+            value:Number(prompt("Degree celcius:")),
+        };
+        // B)FIND
+        console.table(measurement);
+        console.log(measurement.value);
+        // console.warn(measurement.value);
+        // console.error(measurement.value);
+
+        const kelvin = measurement.value + 273;
+            return kelvin;
+        };
+        //A)IDENTITY 
+        console.log(measureKelvin());
+    </script>
+  </body>
+</html>

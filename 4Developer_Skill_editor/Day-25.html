@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array and Object Practice</title>
+  </head>
+  <body>
+    <script>
+      //Declaration of an array
+      //there are two ways to declare  an array
+      // type-1
+      let friends = ["sangram", "banty", "kaliaa"];
+      console.log(friends);
+      // type-2
+      let frnd = new Array(1991, 2233, 4433);
+      console.log(frnd);
+
+      //Accessing element of an array
+      console.log(
+        frnd[0],
+        friends[0],
+        frnd[1],
+        friends[1],
+        frnd[2],
+        friends[2]
+      );
+
+      //Change element from pre defined array
+      friends[1] = "real";
+      console.log(friends);
+
+      //length of an array
+
+      console.log(friends.length);
+
+      //convert array into string
+      console.log(friends.toString());
+
+      //function of an array
+      const calcAge = function (birthYear) {
+        return 2023 - birthYear;
+      };
+
+      const year = [2002, 2001, 1992];
+      console.log(calcAge(year[0]));
+      console.log(calcAge(year[1]));
+      console.log(calcAge(year[2]));
+
+      const ages = [calcAge(year[0]), calcAge(year[1]), calcAge(year[2])];
+      console.log(ages);
+
+      //different input data
+      const friend11 = "bisal";
+      const friend12 = "real";
+      const frnds = ["rahul", "kumar", "parida", 34, 23.54, friend11, friend12];
+      console.log(frnds);
+
+      //basic array operations
+
+      const frndsa = [" rahul", "satya", " satish", "himanshu", "nitesh"];
+      console.log(frndsa);
+      //   frndsa.push('rrr');  // add last element
+      //   console.log(frndsa);
+      //   frndsa.unshift(34); // add first element
+      //   console.log(frndsa);
+      //   frndsa.pop();         //remove last element
+      //   console.log(frndsa);
+      //   frndsa.shift();       //remove first element
+      //   console.log(frndsa);
+
+      // index of element
+      console.log(frndsa.indexOf(" rahul"));
+      console.log(frndsa.indexOf("bob"));
+
+      //include method
+
+      console.log(frndsa.includes("himanshu"));
+      console.log(frndsa.includes("bob"));
+
+      //   check
+      if (frndsa.includes(" satish")) {
+        console.log("you have a frnd called satish!");
+      } else {
+        console.log("no friends!");
+      }
+
+
+
+      //object in javascript
+      const rahul = {
+        firstName : 'rahul',
+        LastName : 'parida',
+        age: 2023-2002,
+        job: 'teacher',
+        friends : ['rahul','real','sangram']
+      }
+      console.log(rahul);
+      console.log(rahul.firstName);
+      console.log(rahul.LastName);
+      console.log(rahul.age);
+
+      //dot vs bracket
+      console.log(rahul.job);
+      console.log(rahul['job']);
+      
+
+      const intersted = prompt("What do you want about rahul? (choose among firstName,LastName,job, age frnds)")
+      console.log(intersted);
+      console.log(rahul[intersted]);
+    </script>
+  </body>
+</html>
