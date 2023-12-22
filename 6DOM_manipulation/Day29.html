@@ -11,18 +11,29 @@
             text-align: center;
             font-size: 40px;
         }
+        #secret{
+            border: 3px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 90px;
+        }
     </style>
 </head>
 <body>
+    <section>
+        <button class="again">Again</button>
+    </section>
     <section>
     <input type="number" class="guess" >
     <button class="check" >Check</button>
     </section>
     <p class="para">start guessing....</p>
-    <input type="text" name="secret" id="secret">
+    <div id="secret">?</div>
 <br><br><br>
-    <label for="score">Score :</label>
-    <p class="score"></p>
+    <p>Score :<span class="score"></span></p>
+    <p>High Score :<span class="highscore"></span></p>
+    
 <script src="Day29.js"></script>
 </body>
 </html>
