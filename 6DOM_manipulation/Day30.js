@@ -16,7 +16,7 @@ document.querySelector(".check").addEventListener("click", function () {
   if (!guess) {
     document.querySelector(".guess").textContent = "😑No Numbers...";
   } else if (guess === secretNumber) {
-    document.querySelector(".guess").textContent = "😍 Correct Number!!!";
+    document.querySelector(".guess").textContent = "😍😍 Correct Number!!!😍😍";
     document.querySelector(".secret").textContent = secretNumber;
 
     if (score > highScore) {
