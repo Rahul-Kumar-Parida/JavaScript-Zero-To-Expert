@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: rgb(208, 217, 226);
+}
+.movements {
+  background-color: #e13f3f;
+}
+.movements_row {
+  background-color: aqua;
+  display: flex;
+  justify-content: space-between;
+  font-size: 34px;
+}
+
+.balance__value {
+  font-size: 40px;
+}
+.summary__value {
+  font-size: 40px;
+  color: green;
+}
+.summary__value--out{
+    color: red;
+}
+.app{
+  opacity: 0;
+}
