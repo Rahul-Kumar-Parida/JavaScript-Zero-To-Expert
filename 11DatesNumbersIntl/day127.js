@@ -83,3 +83,8 @@ console.log(days); //10
 
 //InterNationalizing Dates (INTL)
 
+
+// labelDate.textContent = new Intl.DateTimeFormat(
+//   currentAccount.locale,
+//   options
+// ).format(now);

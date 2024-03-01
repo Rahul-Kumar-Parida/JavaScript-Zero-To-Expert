@@ -63,6 +63,7 @@ const labelSumIn = document.querySelector(".summary__value--in");
 const labelSumOut = document.querySelector(".summary__value--out");
 const labelSumInterest = document.querySelector(".summary__value--interest");
 const labelDate = document.querySelector(".date");
+const labelTimer = document.querySelector(".timer");
 const welcomeMsg = document.querySelector(".label__welcome");
 
 const btnlogin = document.querySelector(".login__btn");
@@ -83,6 +84,14 @@ const containerApp = document.querySelector(".app");
 const containerMovements = document.querySelector(".movements");
 
 //functions...................
+
+//currency number format..
+const formatCur = function (value, locale, currency) {
+  return new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency: currency,
+  }).format(value);
+};
 
 const formatMovementDate = function (date, locale) {
   const calcDayPassed = (date1, date2) =>
@@ -112,11 +121,14 @@ const displayMovements = function (acc, sort = false) {
     const date = new Date(acc.movementsDates[i]);
     const displayDate = formatMovementDate(date, acc.locale);
 
+    //internationalization api
+    const formattedMov = formatCur(mov, acc.locale, acc.currency);
+
     const html = `<div class="movements_row">
         <div class="movements__typemovements__type--${type} ">
              ${i + 1} ${type}
         </div><div class="movements__date">${displayDate}</div>
-        <div class="movements__value"> ${mov.toFixed(2)}€</div>
+        <div class="movements__value"> ${formattedMov}</div>
     </div>`;
     containerMovements.insertAdjacentHTML("afterbegin", html);
     //we use for order (afterbegin and beforebegin)
@@ -125,10 +137,10 @@ const displayMovements = function (acc, sort = false) {
 
 //................................................................................................
 
-
 const calcDisplayBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${acc.balance.toFixed(2)}€`;
+
+  labelBalance.textContent = formatCur(acc.balance, acc.locale, acc.currency);
 };
 
 //.....................................................
@@ -136,12 +148,12 @@ const calcDiplaySummary = function (acc) {
   const incomes = acc.movements
     .filter((mov) => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumIn.textContent = `${incomes.toFixed(2)}€`;
+  labelSumIn.textContent = formatCur(incomes, acc.locale, acc.currency);
 
   const outs = acc.movements
     .filter((mov) => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumOut.textContent = `${Math.abs(outs).toFixed(2)}€`;
+  labelSumOut.textContent = formatCur(Math.abs(outs), acc.locale, acc.currency);
 
   const interest = acc.movements
     .filter((mov) => mov > 0)
@@ -151,7 +163,7 @@ const calcDiplaySummary = function (acc) {
       return int >= 1;
     })
     .reduce((acc, int) => acc + int, 0);
-  labelSumInterest.textContent = `${interest.toFixed(2)}€`;
+  labelSumInterest.textContent = formatCur(interest, acc.locale, acc.currency);
 };
 
 //...............................................................
@@ -182,10 +194,36 @@ const updateUI = function (acc) {
 };
 
 //................................
+//Set timer......
+const startLogOutTimer = function () {
+  const tick = function () {
+    const min = String(Math.trunc(time / 60)).padStart(2, 0);
+    const sec = String(time % 60).padStart(2, 0);
+
+    //in each call, print the remaining time to UI
+    labelTimer.textContent = `${min}:${sec}`;
+
+    //When 0 second , stop timer and log out user
+    if (time === 0) {
+      clearInterval(timer);
+      //Display UI and Message
+      welcomeMsg.textContent = "Welcome HOME";
+      containerApp.style.opacity = 0;
+    }
+    //decrease 1s
+    time--;
+  };
+  //set time to 5 minutes
+  let time = 10;
+
+  //call the timer every second
+  const timer = setInterval(tick, 1000);
+  return timer;
+};
 
 //Event Handler.....
 //LOGIN IMPLEMENT.................
-let currentAccount;
+let currentAccount, timer;
 
 //😲Fake Always Logged In...
 // currentAccount = account1;
@@ -235,6 +273,10 @@ btnlogin.addEventListener("click", function (e) {
     //clear input fields
     inputLoginUserName.value = inputLoginPin.value = " ";
     inputLoginPin.blur();
+
+    //timer
+    if (timer) clearInterval(timer);
+    timer = startLogOutTimer();
     //update UI..
     updateUI(currentAccount);
   }
@@ -266,6 +308,10 @@ btnTransfer.addEventListener("click", function (e) {
     receiverAcc.movementsDates.push(new Date().toISOString());
     //update UI..
     updateUI(currentAccount);
+
+    //reset Timer
+    clearInterval(timer);
+    timer = startLogOutTimer();
   }
 });
 
@@ -280,13 +326,19 @@ btnLoan.addEventListener("click", function (e) {
     currentAccount.movements.some((mov) => mov >= amount * 0.1)
   ) {
     //ADD MOVEMENTS
-    currentAccount.movements.push(amount);
+    setTimeout(function () {
+      currentAccount.movements.push(amount);
 
-    //Add Loan date new
+      //Add Loan date new
 
-    currentAccount.movementsDates.push(new Date().toISOString());
-    //update UI
-    updateUI(currentAccount);
+      currentAccount.movementsDates.push(new Date().toISOString());
+      //update UI
+      updateUI(currentAccount);
+
+       //reset Timer
+    clearInterval(timer);
+    timer = startLogOutTimer();
+    }, 2500);
   }
   inputLoanAmount.value = "";
 });
