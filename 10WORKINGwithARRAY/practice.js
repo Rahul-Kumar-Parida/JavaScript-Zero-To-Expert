@@ -1,4 +1,6 @@
 "use strict";
+
+/*
 //Working with Arrays
 //Slice method
 
@@ -57,7 +59,7 @@ currency.forEach(function (value, key, map) {
   console.log(key);
   console.log(map);
 });
-
+*/
 /*VALUE
 Key
 Map(4) {
@@ -67,6 +69,7 @@ Map(4) {
   'Key' => 'VALUE'
 }*/
 
+/*
 //THE MAP METHOD
 
 const dil = [4, 5, 2, 3, 1, 6, 7, 8, 9];
@@ -104,3 +107,60 @@ console.log(wdw1); //undefined
 const wdw2 = a.find((mov) => mov > 30);
 console.log(wdw2); //34
 //it returns first element if condition is true...
+
+//Implementing LogIn
+//Implementation Transfer
+//The Find index method
+*/
+
+//SOME AND EVERY METHOD
+
+const move = [34, 556, 67, 124, -243, 3445, -666];
+console.log(move.includes(67)); //true
+
+//some
+//if one condition is satisfied then it returns true
+
+console.log(move.some((run) => run > 0)); //ture
+console.log(move.some((run) => run < 0)); //true
+
+//every
+const move1 = [34, 556, 67, 124, 243, 3445, -666];
+console.log(move1.every((run) => run > 0)); //false  //bucz one element is -ve
+
+//FLAT AND FLATMAP METHOD
+
+const ft = [34, 45, 56, [78, 98, 32], 44, [33, 55], 23];
+console.log(ft.flat()); //[34, 45, 56, 78, 98, 32, 44, 33, 55, 23]
+
+//Sort array
+
+const st = [3, 4, 6, 2, 77, 42, 327, 55];
+console.log(st.sort()); //first index sort  //[2,  3, 327,  4,42, 55,   6, 77]
+
+//ascending
+st.sort((a, b) => {
+  if (a > b) return 1;
+  if (b > a) return -1;
+});
+console.log(st); //[2,  3,  4,   6,42, 55, 77, 327]
+
+//descending
+st.sort((a, b) => {
+  if (a > b) return -1;
+  if (b > a) return 1;
+});
+console.log(st); //[ 327, 77, 55, 42, 6,  4,  3,  2]
+
+//more ways creating array
+
+const x = new Array(7);
+console.log(x); //[ <7 empty items> ]
+
+x.fill(3, 1, 5);
+console.log(x); //[ <1 empty item>, 3, 3, 3, 3, <2 empty items> ]
+//3 fill from 1 to 5
+const y = Array.from({ length: 7 }, () => 1);
+console.log(y); //[1,1,1,1,1,1,1]
+
+
